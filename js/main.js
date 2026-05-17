@@ -408,12 +408,12 @@ class AdminShortcut {
     const currentPage = window.location.pathname;
     
     // If already on CMS page, the cms.js will handle it
-    if (currentPage.includes('cms.html')) {
+    if (currentPage.includes('cms-v2.html')) {
       return;
     }
     
-    // Navigate to premium CMS
-    window.location.href = 'cms.html';
+    // Navigate to premium redesigned CMS
+    window.location.href = 'cms-v2.html';
   }
 }
 
