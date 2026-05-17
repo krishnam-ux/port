@@ -92,8 +92,8 @@ class AdminPortal {
    */
   toggleAdminPortal() {
     if (this.currentUser) {
-      // User is logged in, show/hide dashboard
-      this.dashboard.style.display = this.dashboard.style.display === 'none' ? 'grid' : 'none';
+      // Redirect to premium CMS
+      window.location.href = 'cms.html';
     } else {
       // Show login modal
       this.loginModal.classList.remove('hidden');

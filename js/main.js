@@ -407,13 +407,13 @@ class AdminShortcut {
   openAdminPanel() {
     const currentPage = window.location.pathname;
     
-    // If already on admin page, the admin.js will handle it
-    if (currentPage.includes('admin.html')) {
+    // If already on CMS page, the cms.js will handle it
+    if (currentPage.includes('cms.html')) {
       return;
     }
     
-    // Navigate to admin.html
-    window.location.href = 'admin.html';
+    // Navigate to premium CMS
+    window.location.href = 'cms.html';
   }
 }
 

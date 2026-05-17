@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium CMS Dashboard - Krishnam's Portfolio</title>
+  <link rel="stylesheet" href="css/admin-premium.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+  <!-- ============================================================================
+       PREMIUM DASHBOARD CONTAINER
+       ============================================================================ -->
+  <div class="premium-dashboard">
+    
+    <!-- ============================================================================
+         SIDEBAR NAVIGATION
+         ============================================================================ -->
+    <aside class="cms-sidebar">
+      <div class="cms-logo">
+        <span>⚙️</span>
+        <span>CMS</span>
+      </div>
+
+      <div class="cms-nav-section">
+        <div class="cms-nav-label">Content</div>
+        <div class="cms-nav-item active" data-section="dashboard">
+          <span class="cms-nav-icon">📊</span>
+          <span>Dashboard</span>
+        </div>
+        <div class="cms-nav-item" data-section="hero">
+          <span class="cms-nav-icon">🎯</span>
+          <span>Hero</span>
+        </div>
+        <div class="cms-nav-item" data-section="projects">
+          <span class="cms-nav-icon">📁</span>
+          <span>Projects</span>
+        </div>
+        <div class="cms-nav-item" data-section="gallery">
+          <span class="cms-nav-icon">🖼️</span>
+          <span>Gallery</span>
+        </div>
+        <div class="cms-nav-item" data-section="certifications">
+          <span class="cms-nav-icon">🏆</span>
+          <span>Certs</span>
+        </div>
+      </div>
+
+      <div class="cms-nav-section">
+        <div class="cms-nav-label">Settings</div>
+        <div class="cms-nav-item" data-section="messages">
+          <span class="cms-nav-icon">💬</span>
+          <span>Messages</span>
+        </div>
+        <div class="cms-nav-item" data-section="resume">
+          <span class="cms-nav-icon">📄</span>
+          <span>Resume</span>
+        </div>
+        <div class="cms-nav-item" data-section="analytics">
+          <span class="cms-nav-icon">📈</span>
+          <span>Analytics</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============================================================================
+         MAIN CONTENT AREA
+         ============================================================================ -->
+    <div class="cms-main">
+      
+      <!-- Header -->
+      <div class="cms-header">
+        <div class="cms-header-title">
+          <h1>Premium CMS Dashboard</h1>
+        </div>
+        <div class="cms-header-actions">
+          <button class="btn-premium btn-secondary-premium" id="previewToggleBtn">👁️ Preview</button>
+          <button class="btn-premium btn-primary-premium" id="publishBtn">🚀 Publish All</button>
+        </div>
+      </div>
+
+      <!-- Content Sections -->
+      <div class="cms-content">
+
+        <!-- ============================================================================
+             DASHBOARD SECTION
+             ============================================================================ -->
+        <div class="cms-section active" id="dashboard-section" data-section-id="dashboard">
+          <div class="cms-card glass">
+            <div class="cms-card-icon">📊</div>
+            <h3>Website Stats</h3>
+            <div class="analytics-grid">
+              <div class="stat-card glass">
+                <div class="stat-value" data-count="2847">0</div>
+                <div class="stat-label">Visitors</div>
+              </div>
+              <div class="stat-card glass">
+                <div class="stat-value" data-count="15">0</div>
+                <div class="stat-label">Projects</div>
+              </div>
+              <div class="stat-card glass">
+                <div class="stat-value" data-count="42">0</div>
+                <div class="stat-label">Messages</div>
+              </div>
+              <div class="stat-card glass">
+                <div class="stat-value" data-count="5">0</div>
+                <div class="stat-label">Certs</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cms-card glass">
+            <div class="cms-card-icon">⚡</div>
+            <h3>Quick Actions</h3>
+            <button class="btn-premium btn-primary-premium" style="width: 100%; margin-bottom: 10px;" data-section="hero">✏️ Edit Hero</button>
+            <button class="btn-premium btn-primary-premium" style="width: 100%; margin-bottom: 10px;" data-section="projects">➕ New Project</button>
+            <button class="btn-premium btn-primary-premium" style="width: 100%;" data-section="gallery">🖼️ Upload Images</button>
+          </div>
+
+          <div class="cms-card glass">
+            <div class="cms-card-icon">🔔</div>
+            <h3>Recent Activity</h3>
+            <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 2;">
+              <div>✅ Published hero updates</div>
+              <div>➕ Added 3 new projects</div>
+              <div>📸 Uploaded 12 gallery images</div>
+              <div>💌 Received 5 new messages</div>
+            </div>
+          </div>
+
+          <div class="cms-card glass">
+            <div class="cms-card-icon">🌐</div>
+            <h3>Website Status</h3>
+            <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 2;">
+              <div>🟢 All systems operational</div>
+              <div>🔄 Real-time syncing enabled</div>
+              <div>🚀 Ready to publish</div>
+              <div>⚡ Optimized performance</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================================
+             HERO SECTION MANAGER
+             ============================================================================ -->
+        <div class="cms-section fullwidth" id="hero-section" data-section-id="hero">
+          <div class="cms-card glass">
+            <h3>🎯 Hero Section Manager</h3>
+            
+            <div class="form-group">
+              <label class="form-label">Main Heading</label>
+              <input type="text" class="form-input" id="heroHeading" placeholder="Krishnam Dwivedi" value="Krishnam Dwivedi">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Subtitle</label>
+              <input type="text" class="form-input" id="heroSubtitle" placeholder="AI & ML Enthusiast | Cloud & DevOps Learner" value="AI & ML Enthusiast | Cloud & DevOps Learner">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Description</label>
+              <textarea class="form-textarea" id="heroDescription">Building intelligent digital solutions through AI, cloud technologies, and modern web experiences. Passionate about creating impactful tech innovations.</textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Specializations (comma separated)</label>
+              <input type="text" class="form-input" id="heroTags" placeholder="AI & ML, Cloud Computing, DevOps, Web Dev" value="AI & ML, Cloud Computing, DevOps, Web Dev">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Hero Image</label>
+              <div class="file-upload-area" id="heroImageUpload">
+                <div class="file-upload-icon">🖼️</div>
+                <div class="file-upload-text">Drop image or click to upload</div>
+                <div class="file-upload-hint">Recommended: 1200x600px</div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+              <button class="btn-premium btn-primary-premium" id="saveDraftHero" style="flex: 1;">💾 Save Draft</button>
+              <button class="btn-premium btn-primary-premium" id="publishHero" style="flex: 1;">🚀 Publish</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================================
+             PROJECTS MANAGER
+             ============================================================================ -->
+        <div class="cms-section fullwidth" id="projects-section" data-section-id="projects">
+          <div class="cms-card glass">
+            <h3>📁 Projects Manager</h3>
+            
+            <div class="form-group">
+              <label class="form-label">Project Name</label>
+              <input type="text" class="form-input" id="projectName" placeholder="My Awesome Project">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Description</label>
+              <textarea class="form-textarea" id="projectDescription" placeholder="Project description..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Technology Stack (comma separated)</label>
+              <input type="text" class="form-input" id="projectTech" placeholder="React, Node.js, Firebase">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">GitHub Repository</label>
+              <input type="url" class="form-input" id="projectGithub" placeholder="https://github.com/...">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Project Image</label>
+              <div class="file-upload-area" id="projectImageUpload">
+                <div class="file-upload-icon">📸</div>
+                <div class="file-upload-text">Drop image or click to upload</div>
+                <div class="file-upload-hint">Recommended: 800x500px</div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+              <button class="btn-premium btn-primary-premium" id="saveProject" style="flex: 1;">💾 Save Project</button>
+              <button class="btn-premium btn-danger-premium" id="clearProject" style="flex: 1;">🗑️ Clear</button>
+            </div>
+
+            <hr style="border: 1px solid var(--border-color); margin: 20px 0;">
+
+            <h3 style="margin-top: 20px;">Published Projects</h3>
+            <div id="projectsList" style="display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px;">
+              <div class="cms-card glass" style="margin: 0;">
+                <div>No projects yet. Create your first one!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================================
+             GALLERY MANAGER
+             ============================================================================ -->
+        <div class="cms-section fullwidth" id="gallery-section" data-section-id="gallery">
+          <div class="cms-card glass">
+            <h3>🖼️ Gallery Manager</h3>
+            
+            <div class="form-group">
+              <label class="form-label">Upload Gallery Images</label>
+              <div class="file-upload-area" id="galleryUpload" style="cursor: pointer;">
+                <div class="file-upload-icon">📸</div>
+                <div class="file-upload-text">Drop images or click to upload</div>
+                <div class="file-upload-hint">Multiple images supported. Max 5MB each</div>
+              </div>
+            </div>
+
+            <div id="galleryPreview" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-top: 20px;">
+              <div style="color: var(--text-secondary); grid-column: 1/-1;">No images uploaded yet</div>
+            </div>
+
+            <button class="btn-premium btn-primary-premium" id="publishGallery" style="width: 100%; margin-top: 20px;">🚀 Publish Gallery</button>
+          </div>
+        </div>
+
+        <!-- ============================================================================
+             CERTIFICATIONS MANAGER
+             ============================================================================ -->
+        <div class="cms-section fullwidth" id="certifications-section" data-section-id="certifications">
+          <div class="cms-card glass">
+            <h3>🏆 Certifications Manager</h3>
+            
+            <div class="form-group">
+              <label class="form-label">Certification Name</label>
+              <input type="text" class="form-input" id="certName" placeholder="Azure Fundamentals">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Issuer</label>
+              <input type="text" class="form-input" id="certIssuer" placeholder="Microsoft">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Verification Link</label>
+              <input type="url" class="form-input" id="certLink" placeholder="https://...">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Certificate Badge/Logo</label>
+              <div class="file-upload-area" id="certImageUpload">
+                <div class="file-upload-icon">📜</div>
+                <div class="file-upload-text">Drop image or click to upload</div>
+                <div class="file-upload-hint">Recommended: 200x200px</div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+              <button class="btn-premium btn-primary-premium" id="saveCert" style="flex: 1;">➕ Add Cert</button>
+              <button class="btn-premium btn-danger-premium" id="clearCert" style="flex: 1;">Clear</button>
+            </div>
+
+            <hr style="border: 1px solid var(--border-color); margin: 20px 0;">
+
+            <h3 style="margin-top: 20px;">Published Certifications</h3>
+            <div id="certsList" style="display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px;">
+              <div class="cms-card glass" style="margin: 0;">
+                <div>No certifications yet</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================================
+             MESSAGES MANAGER
+             ============================================================================ -->
+        <div class="cms-section fullwidth" id="messages-section" data-section-id="messages">
+          <div class="cms-card glass">
+            <h3>💬 Contact Messages</h3>
+            
+            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+              <input type="text" class="form-input" id="messageSearch" placeholder="Search messages..." style="flex: 1;">
+              <button class="btn-premium btn-secondary-premium">🔍</button>
+            </div>
+
+            <div id="messagesList" style="display: flex; flex-direction: column; gap: 10px;">
+              <div class="cms-card glass" style="margin: 0; cursor: pointer;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-weight: 700; color: var(--primary-light);">John Doe</div>
+                    <div style="font-size: 0.9rem; color: var(--text-secondary);">john@example.com</div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 5px;">Great portfolio! Very impressed with your work.</div>
+                  </div>
+                  <div style="display: flex; gap: 8px;">
+                    <button class="btn-premium btn-secondary-premium">✓ Mark</button>
+                    <button class="btn-premium btn-danger-premium">🗑️</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================================
+             RESUME MANAGER
+             ============================================================================ -->
+        <div class="cms-section fullwidth" id="resume-section" data-section-id="resume">
+          <div class="cms-card glass">
+            <h3>📄 Resume Manager</h3>
+            
+            <div style="margin-bottom: 20px;">
+              <div style="color: var(--text-secondary); margin-bottom: 10px;">Current Resume: <strong>Profile (4).pdf</strong></div>
+              <a href="file:///C:/Users/krish/Downloads/Profile%20(4).pdf" class="btn-premium btn-secondary-premium" style="display: inline-block;">📥 Download Current</a>
+            </div>
+
+            <hr style="border: 1px solid var(--border-color); margin: 20px 0;">
+
+            <div class="form-group">
+              <label class="form-label">Upload New Resume</label>
+              <div class="file-upload-area" id="resumeUpload">
+                <div class="file-upload-icon">📄</div>
+                <div class="file-upload-text">Drop PDF or click to upload</div>
+                <div class="file-upload-hint">Max size: 10MB, PDF format only</div>
+              </div>
+            </div>
+
+            <button class="btn-premium btn-primary-premium" id="publishResume" style="width: 100%;">🚀 Publish Resume</button>
+          </div>
+        </div>
+
+        <!-- ============================================================================
+             ANALYTICS SECTION
+             ============================================================================ -->
+        <div class="cms-section fullwidth" id="analytics-section" data-section-id="analytics">
+          <div class="cms-card glass">
+            <h3>📈 Analytics Dashboard</h3>
+            
+            <div class="analytics-grid">
+              <div class="stat-card glass">
+                <div class="stat-value">2,847</div>
+                <div class="stat-label">Total Visitors</div>
+              </div>
+              <div class="stat-card glass">
+                <div class="stat-value">1,203</div>
+                <div class="stat-label">This Month</div>
+              </div>
+              <div class="stat-card glass">
+                <div class="stat-value">89</div>
+                <div class="stat-label">Today</div>
+              </div>
+              <div class="stat-card glass">
+                <div class="stat-value">3:42</div>
+                <div class="stat-label">Avg Duration</div>
+              </div>
+            </div>
+
+            <hr style="border: 1px solid var(--border-color); margin: 20px 0;">
+
+            <h3>Most Viewed Pages</h3>
+            <div style="margin-top: 15px; font-size: 0.95rem;">
+              <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border-color);">
+                <span>Home</span>
+                <span style="color: var(--primary-light);">1,203 views</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border-color);">
+                <span>Projects</span>
+                <span style="color: var(--primary-light);">847 views</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border-color);">
+                <span>Gallery</span>
+                <span style="color: var(--primary-light);">654 views</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                <span>Contact</span>
+                <span style="color: var(--primary-light);">143 views</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================================
+       LIVE PREVIEW PANEL
+       ============================================================================ -->
+  <div class="live-preview-panel" id="livePreviewPanel">
+    <h2 style="margin-bottom: 20px; color: var(--primary-light);">👁️ Live Preview</h2>
+    <div id="previewContent" style="color: var(--text-secondary);">
+      <p>Changes will appear here in real-time as you edit</p>
+    </div>
+  </div>
+
+  <button class="preview-toggle-btn" id="previewToggleBtn">👁️</button>
+
+  <!-- ============================================================================
+       SCRIPTS
+       ============================================================================ -->
+  <script src="js/cms-premium.js"></script>
+</body>
+</html>
