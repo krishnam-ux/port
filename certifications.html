@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifications - Krishnam Dwivedi | AI Entrepreneur & Developer</title>
+  
+  <meta name="description" content="Certifications of Krishnam Dwivedi: Microsoft Azure, Oracle OCI, IBM, Nutanix certified professional.">
+  <meta name="keywords" content="certifications, Azure, Oracle, IBM, Nutanix, Microsoft">
+  
+  <meta property="og:title" content="Certifications - Krishnam Dwivedi">
+  <meta property="og:description" content="Professional certifications in Cloud, AI, and Enterprise technologies">
+  
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/premium-3d.css">
+  <link rel="stylesheet" href="css/advanced-3d.css">
+  <style>
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .certification-card {
+      background: rgba(31, 31, 46, 0.4);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      transition: all var(--transition-normal);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .certification-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+      transition: left 0.6s;
+    }
+
+    .certification-card:hover {
+      border-color: rgba(168, 85, 247, 0.4);
+      box-shadow: 0 12px 40px rgba(168, 85, 247, 0.2);
+      transform: translateY(-8px);
+    }
+
+    .certification-card:hover::before {
+      left: 100%;
+    }
+
+    .certification-badge {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(13, 110, 253, 0.2));
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: var(--purple-light);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: fit-content;
+      margin-bottom: 1rem;
+    }
+
+    .certification-badge.featured {
+      background: linear-gradient(135deg, rgba(13, 110, 253, 0.3), rgba(6, 182, 212, 0.2));
+      border-color: rgba(13, 110, 253, 0.5);
+      color: var(--accent-cyan);
+    }
+
+    .certification-logo {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+
+    .certification-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .certification-issuer {
+      font-size: 0.85rem;
+      color: var(--text-tertiary);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .certification-description {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+      line-height: 1.6;
+    }
+
+    .certification-footer {
+      display: flex;
+      gap: 1rem;
+      margin-top: auto;
+    }
+
+    .cert-btn {
+      flex: 1;
+      padding: 10px 16px;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      background: transparent;
+      color: var(--text-secondary);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all var(--transition-normal);
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .cert-btn:hover {
+      background: rgba(168, 85, 247, 0.2);
+      border-color: var(--purple-light);
+      color: var(--purple-light);
+    }
+
+    .microsoft-brand {
+      color: #0078d4;
+    }
+
+    .oracle-brand {
+      color: #f80000;
+    }
+
+    .ibm-brand {
+      color: #0f62fe;
+    }
+
+    .nutanix-brand {
+      color: #02b3e4;
+    }
+
+    .stats-section {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 2rem;
+      background: rgba(31, 31, 46, 0.3);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(168, 85, 247, 0.1);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat-box {
+      padding: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--purple-primary), var(--purple-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-text {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .certifications-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-container"></div>
+  <div class="cursor-glow"></div>
+
+  <nav class="navbar">
+    <div class="navbar-brand">Krishnam Dwivedi</div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="navbar-menu">
+      <li><a href="index.html" class="navbar-link">Home</a></li>
+      <li><a href="about.html" class="navbar-link">About</a></li>
+      <li><a href="skills.html" class="navbar-link">Skills</a></li>
+      <li><a href="experience.html" class="navbar-link">Experience</a></li>
+      <li><a href="certifications.html" class="navbar-link active">Certifications</a></li>
+      <li><a href="projects.html" class="navbar-link">Projects</a></li>
+      <li><a href="gallery.html" class="navbar-link">Gallery</a></li>
+      <li><a href="contact.html" class="navbar-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section style="padding-top: 100px;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Professional Certifications</h2>
+        <div class="accent-line"></div>
+        <p style="margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Industry-recognized certifications in Cloud, AI, and Enterprise Technologies</p>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="stats-section" data-animate>
+        <h3 style="margin-bottom: 0;">Certification Credentials</h3>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-number">5</div>
+            <div class="stat-text">Certifications</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">3</div>
+            <div class="stat-text">Major Cloud Providers</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">100%</div>
+            <div class="stat-text">Verification Rate</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certifications Grid -->
+      <div class="certifications-grid">
+        <!-- Microsoft Azure Fundamentals -->
+        <div class="certification-card" data-animate>
+          <div class="certification-badge featured">Featured</div>
+          <div class="certification-logo microsoft-brand">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="1" y="1" width="9" height="9" />
+              <rect x="14" y="1" width="9" height="9" />
+              <rect x="1" y="14" width="9" height="9" />
+              <rect x="14" y="14" width="9" height="9" />
+            </svg>
+          </div>
+          <h3 class="certification-title">Azure Fundamentals</h3>
+          <div class="certification-issuer">Microsoft Certified (AZ-900)</div>
+          <p class="certification-description">Certified in Azure Fundamentals, demonstrating foundational knowledge of cloud services and Microsoft Azure platform capabilities.</p>
+          <div class="certification-footer">
+            <a href="https://www.credly.com/badges/ac1d5272-0e52-44f0-9813-49a4d7b87767/public_url" class="cert-btn" target="_blank" rel="noopener noreferrer">Verify Credential</a>
+          </div>
+        </div>
+
+        <!-- Microsoft Azure AI Fundamentals -->
+        <div class="certification-card" data-animate>
+          <div class="certification-badge featured">Featured</div>
+          <div class="certification-logo microsoft-brand">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="1" y="1" width="9" height="9" />
+              <rect x="14" y="1" width="9" height="9" />
+              <rect x="1" y="14" width="9" height="9" />
+              <rect x="14" y="14" width="9" height="9" />
+            </svg>
+          </div>
+          <h3 class="certification-title">Azure AI Fundamentals</h3>
+          <div class="certification-issuer">Microsoft Certified (AI-900)</div>
+          <p class="certification-description">Certified in Azure AI Fundamentals with expertise in AI concepts, machine learning, and Azure AI services.</p>
+          <div class="certification-footer">
+            <a href="https://www.credly.com/badges/ead50411-767c-4848-aec3-29188056e242/public_url" class="cert-btn" target="_blank" rel="noopener noreferrer">Verify Credential</a>
+          </div>
+        </div>
+
+        <!-- Oracle OCI AI Foundations -->
+        <div class="certification-card" data-animate>
+          <div class="certification-badge">Professional</div>
+          <div class="certification-logo oracle-brand">
+            <svg width="80" height="80" viewBox="0 0 100 100" fill="currentColor">
+              <path d="M50 10 L90 35 L90 65 L50 90 L10 65 L10 35 Z" />
+              <text x="50" y="55" text-anchor="middle" fill="white" font-size="16" font-weight="bold">OCI</text>
+            </svg>
+          </div>
+          <h3 class="certification-title">OCI AI Foundations</h3>
+          <div class="certification-issuer">Oracle Cloud Infrastructure (2025)</div>
+          <p class="certification-description">Certified AI Foundations Associate on Oracle Cloud Infrastructure, demonstrating expertise in AI services and cloud deployment.</p>
+          <div class="certification-footer">
+            <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=B5B9DF1E91EE8115D2BF8FBEC0866B6AF6063C84883C225B25D7178A4DA82D70" class="cert-btn" target="_blank" rel="noopener noreferrer">Verify Credential</a>
+          </div>
+        </div>
+
+        <!-- IBM Enterprise Design Thinking -->
+        <div class="certification-card" data-animate>
+          <div class="certification-badge">Professional</div>
+          <div class="certification-logo ibm-brand">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="2" y="2" width="4" height="20" />
+              <rect x="10" y="2" width="4" height="20" />
+              <rect x="18" y="2" width="4" height="20" />
+            </svg>
+          </div>
+          <h3 class="certification-title">Enterprise Design Thinking</h3>
+          <div class="certification-issuer">IBM Practitioner</div>
+          <p class="certification-description">Certified practitioner in IBM's Enterprise Design Thinking framework for human-centered problem-solving and innovation.</p>
+          <div class="certification-footer">
+            <a href="https://www.credly.com/badges/cc78ab8e-ee5c-4988-9c09-4e3aaf6a80bc/public_url" class="cert-btn" target="_blank" rel="noopener noreferrer">Verify Credential</a>
+          </div>
+        </div>
+
+        <!-- Nutanix Certified Associate -->
+        <div class="certification-card" data-animate>
+          <div class="certification-badge">Professional</div>
+          <div class="certification-logo nutanix-brand">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" />
+              <circle cx="12" cy="12" r="6" />
+              <circle cx="12" cy="12" r="2" fill="white" />
+            </svg>
+          </div>
+          <h3 class="certification-title">Nutanix Certified Associate</h3>
+          <div class="certification-issuer">NCA 6 Certification</div>
+          <p class="certification-description">Certified Associate professional with expertise in hyperconverged infrastructure and Nutanix Cloud Platform management.</p>
+          <div class="certification-footer">
+            <a href="https://www.nutanix.com/en/careers/university/certifications" class="cert-btn" target="_blank" rel="noopener noreferrer">Verify Credential</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+  <script src="js/premium-3d.js"></script>
+  <script src="js/advanced-3d.js"></script>
+</body>
+</html>

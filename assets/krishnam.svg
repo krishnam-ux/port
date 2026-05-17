@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d946ef;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#bgGradient)" opacity="0.2"/>
+  
+  <!-- Outer circle -->
+  <circle cx="200" cy="200" r="190" fill="none" stroke="url(#accentGradient)" stroke-width="2" opacity="0.5"/>
+  <circle cx="200" cy="200" r="180" fill="none" stroke="url(#bgGradient)" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Main circle background -->
+  <circle cx="200" cy="200" r="180" fill="#15151e" opacity="0.8"/>
+  
+  <!-- Glowing effect -->
+  <circle cx="200" cy="200" r="190" fill="none" stroke="url(#bgGradient)" stroke-width="3" opacity="0.3" filter="url(#blur)"/>
+  
+  <!-- Head (simplified) -->
+  <circle cx="200" cy="140" r="50" fill="url(#bgGradient)" opacity="0.7"/>
+  <circle cx="200" cy="140" r="50" fill="none" stroke="url(#accentGradient)" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Facial features (simplified) -->
+  <!-- Eyes -->
+  <circle cx="185" cy="130" r="5" fill="#0ea5e9"/>
+  <circle cx="215" cy="130" r="5" fill="#0ea5e9"/>
+  
+  <!-- Smile (arc) -->
+  <path d="M 185 150 Q 200 160 215 150" fill="none" stroke="url(#accentGradient)" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Body (simplified) -->
+  <path d="M 165 190 Q 160 210 170 240 L 230 240 Q 240 210 235 190 Z" fill="url(#bgGradient)" opacity="0.7"/>
+  
+  <!-- Shoulders -->
+  <ellipse cx="200" cy="195" rx="60" ry="30" fill="url(#bgGradient)" opacity="0.5"/>
+  
+  <!-- Tech inspired elements -->
+  <g opacity="0.4">
+    <!-- Code brackets -->
+    <text x="280" y="160" font-family="monospace" font-size="16" fill="url(#accentGradient)" font-weight="bold">&lt;</text>
+    <text x="290" y="160" font-family="monospace" font-size="16" fill="url(#accentGradient)" font-weight="bold">/&gt;</text>
+    
+    <!-- AI symbol -->
+    <text x="100" y="280" font-size="32" opacity="0.6">🤖</text>
+    
+    <!-- Cloud symbol -->
+    <text x="300" y="100" font-size="28" opacity="0.6">☁️</text>
+  </g>
+  
+  <!-- Decorative elements -->
+  <g opacity="0.3" stroke="url(#accentGradient)" stroke-width="1" fill="none">
+    <circle cx="100" cy="100" r="30"/>
+    <circle cx="300" cy="300" r="40"/>
+    <line x1="50" y1="200" x2="100" y2="200"/>
+    <line x1="300" y1="200" x2="350" y2="200"/>
+  </g>
+  
+  <!-- Blur filter -->
+  <defs>
+    <filter id="blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+    </filter>
+  </defs>
+</svg>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills - Krishnam Dwivedi | AI Entrepreneur & Developer</title>
+  
+  <meta name="description" content="Technical skills of Krishnam Dwivedi: AI/ML, Python, Data Analysis, Cloud Computing, DevOps, Web Development.">
+  <meta name="keywords" content="skills, AI, ML, Python, Cloud, DevOps, Web Development">
+  
+  <meta property="og:title" content="Skills - Krishnam Dwivedi">
+  <meta property="og:description" content="Technical expertise in AI, ML, Cloud, and DevOps">
+  
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/premium-3d.css">
+  <link rel="stylesheet" href="css/advanced-3d.css">
+  <style>
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .skill-card {
+      background: rgba(31, 31, 46, 0.4);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      transition: all var(--transition-normal);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+      transition: left 0.6s;
+    }
+
+    .skill-card:hover {
+      border-color: rgba(168, 85, 247, 0.4);
+      box-shadow: 0 12px 40px rgba(168, 85, 247, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .skill-card:hover::before {
+      left: 100%;
+    }
+
+    .skill-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(13, 110, 253, 0.2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .skill-title {
+      flex: 1;
+    }
+
+    .skill-title h3 {
+      margin: 0;
+      margin-bottom: 0.25rem;
+      color: var(--text-primary);
+    }
+
+    .skill-level {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .skill-description {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(168, 85, 247, 0.1);
+      border-radius: 3px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--purple-primary), var(--purple-light));
+      border-radius: 3px;
+      width: 0%;
+      animation: fillProgress 2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+    }
+
+    @keyframes fillProgress {
+      from {
+        width: 0%;
+      }
+      to {
+        width: var(--progress-width);
+      }
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: var(--text-secondary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      transition: all var(--transition-normal);
+    }
+
+    .tag:hover {
+      background: rgba(168, 85, 247, 0.2);
+      border-color: rgba(168, 85, 247, 0.5);
+      color: var(--purple-light);
+    }
+
+    @media (max-width: 768px) {
+      .skills-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-container"></div>
+  <div class="cursor-glow"></div>
+
+  <nav class="navbar">
+    <div class="navbar-brand">Krishnam Dwivedi</div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="navbar-menu">
+      <li><a href="index.html" class="navbar-link">Home</a></li>
+      <li><a href="about.html" class="navbar-link">About</a></li>
+      <li><a href="skills.html" class="navbar-link active">Skills</a></li>
+      <li><a href="experience.html" class="navbar-link">Experience</a></li>
+      <li><a href="certifications.html" class="navbar-link">Certifications</a></li>
+      <li><a href="projects.html" class="navbar-link">Projects</a></li>
+      <li><a href="gallery.html" class="navbar-link">Gallery</a></li>
+      <li><a href="contact.html" class="navbar-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section style="padding-top: 100px;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Technical Skills</h2>
+        <div class="accent-line"></div>
+        <p style="margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Expertise in cutting-edge technologies and frameworks</p>
+      </div>
+
+      <div class="skills-container">
+        <!-- AI & ML -->
+        <div class="skill-card" data-animate>
+          <div class="skill-header">
+            <div class="skill-icon">🤖</div>
+            <div class="skill-title">
+              <h3>AI & Machine Learning</h3>
+              <div class="skill-level">Intermediate</div>
+            </div>
+          </div>
+          <p class="skill-description">Exploring machine learning concepts, building models, and understanding AI algorithms.</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--progress-width: 75%"></div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">ML Models</span>
+            <span class="tag">Data Science</span>
+            <span class="tag">Algorithms</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+
+        <!-- Python -->
+        <div class="skill-card" data-animate>
+          <div class="skill-header">
+            <div class="skill-icon">🐍</div>
+            <div class="skill-title">
+              <h3>Python</h3>
+              <div class="skill-level">Intermediate</div>
+            </div>
+          </div>
+          <p class="skill-description">Programming in Python for data analysis, automation, and web development projects.</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--progress-width: 78%"></div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Libraries</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Scripts</span>
+            <span class="tag">Backend</span>
+          </div>
+        </div>
+
+        <!-- Cloud Computing -->
+        <div class="skill-card" data-animate>
+          <div class="skill-header">
+            <div class="skill-icon">☁️</div>
+            <div class="skill-title">
+              <h3>Cloud Computing</h3>
+              <div class="skill-level">Beginner to Intermediate</div>
+            </div>
+          </div>
+          <p class="skill-description">Learning cloud platforms, understanding infrastructure, and exploring cloud solutions.</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--progress-width: 70%"></div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Azure</span>
+            <span class="tag">Oracle Cloud</span>
+            <span class="tag">AWS</span>
+            <span class="tag">Infrastructure</span>
+          </div>
+        </div>
+
+        <!-- DevOps -->
+        <div class="skill-card" data-animate>
+          <div class="skill-header">
+            <div class="skill-icon">🚀</div>
+            <div class="skill-title">
+              <h3>DevOps</h3>
+              <div class="skill-level">Beginner</div>
+            </div>
+          </div>
+          <p class="skill-description">Understanding DevOps practices, deployment strategies, and automation concepts.</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--progress-width: 65%"></div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Docker</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Deployment</span>
+          </div>
+        </div>
+
+        <!-- Web Development -->
+        <div class="skill-card" data-animate>
+          <div class="skill-header">
+            <div class="skill-icon">💻</div>
+            <div class="skill-title">
+              <h3>Web Development</h3>
+              <div class="skill-level">Intermediate</div>
+            </div>
+          </div>
+          <p class="skill-description">Building responsive web applications with modern technologies and frameworks.</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--progress-width: 80%"></div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">React</span>
+            <span class="tag">Responsive Design</span>
+          </div>
+        </div>
+
+        <!-- Data Analysis -->
+        <div class="skill-card" data-animate>
+          <div class="skill-header">
+            <div class="skill-icon">📊</div>
+            <div class="skill-title">
+              <h3>Data Analysis</h3>
+              <div class="skill-level">Intermediate</div>
+            </div>
+          </div>
+          <p class="skill-description">Analyzing data, creating visualizations, and extracting actionable insights.</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--progress-width: 76%"></div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">SQL</span>
+            <span class="tag">Excel</span>
+            <span class="tag">Visualization</span>
+            <span class="tag">Statistics</span>
+          </div>
+        </div>
+
+        <!-- Digital Marketing -->
+        <div class="skill-card" data-animate>
+          <div class="skill-header">
+            <div class="skill-icon">📱</div>
+            <div class="skill-title">
+              <h3>Digital Marketing</h3>
+              <div class="skill-level">Intermediate</div>
+            </div>
+          </div>
+          <p class="skill-description">Digital marketing campaigns, social media, brand awareness, and market research.</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--progress-width: 72%"></div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Social Media</span>
+            <span class="tag">Campaigns</span>
+            <span class="tag">Content</span>
+            <span class="tag">SEO</span>
+          </div>
+        </div>
+
+        <!-- Branding -->
+        <div class="skill-card" data-animate>
+          <div class="skill-header">
+            <div class="skill-icon">🎨</div>
+            <div class="skill-title">
+              <h3>Branding</h3>
+              <div class="skill-level">Intermediate</div>
+            </div>
+          </div>
+          <p class="skill-description">Personal branding, brand identity, and creating impactful brand messages.</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--progress-width: 71%"></div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Brand Strategy</span>
+            <span class="tag">Design</span>
+            <span class="tag">Identity</span>
+            <span class="tag">Messaging</span>
+          </div>
+        </div>
+
+        <!-- Teamwork -->
+        <div class="skill-card" data-animate>
+          <div class="skill-header">
+            <div class="skill-icon">👥</div>
+            <div class="skill-title">
+              <h3>Teamwork</h3>
+              <div class="skill-level">Advanced</div>
+            </div>
+          </div>
+          <p class="skill-description">Collaboration, communication, and working effectively with diverse teams.</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--progress-width: 85%"></div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Collaboration</span>
+            <span class="tag">Communication</span>
+            <span class="tag">Leadership</span>
+            <span class="tag">Adaptability</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+  <script src="js/premium-3d.js"></script>
+  <script src="js/advanced-3d.js"></script>
+</body>
+</html>

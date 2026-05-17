@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setup - Portfolio Admin System</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0f0a1f 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .setup-container {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(20, 20, 25, 0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 0 60px rgba(168, 85, 247, 0.2);
+    }
+
+    h1 {
+      color: #d946ef;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 2.5rem;
+    }
+
+    .setup-section {
+      margin-bottom: 40px;
+    }
+
+    .setup-section h2 {
+      color: #a855f7;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .setup-section p {
+      color: #b0b0b8;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .code-block {
+      background: rgba(0, 0, 0, 0.4);
+      border-left: 3px solid #a855f7;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      overflow-x: auto;
+      margin: 15px 0;
+      font-size: 0.9rem;
+    }
+
+    .credentials {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 15px 0;
+    }
+
+    .credentials h3 {
+      color: #22c55e;
+      margin-bottom: 10px;
+    }
+
+    .credential-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(34, 197, 94, 0.1);
+    }
+
+    .credential-item:last-child {
+      border-bottom: none;
+    }
+
+    .label {
+      font-weight: 600;
+      color: #a8a8b8;
+    }
+
+    .value {
+      color: #22c55e;
+      font-family: monospace;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #a855f7, #d946ef);
+      color: white;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(168, 85, 247, 0.2);
+      color: #a855f7;
+      border: 1px solid rgba(168, 85, 247, 0.4);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(168, 85, 247, 0.3);
+    }
+
+    .status {
+      background: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+
+    .status h3 {
+      color: #d946ef;
+      margin-bottom: 10px;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 0.95rem;
+    }
+
+    .status-icon {
+      font-size: 1.2rem;
+    }
+
+    .success {
+      color: #22c55e;
+    }
+
+    .warning {
+      color: #f59e0b;
+    }
+
+    .list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .list li {
+      padding: 10px 0;
+      padding-left: 30px;
+      position: relative;
+      color: #b0b0b8;
+    }
+
+    .list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #a855f7;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .setup-container {
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="setup-container">
+    <h1>🎉 Portfolio Admin System</h1>
+    
+    <div class="status">
+      <h3>📋 System Status</h3>
+      <div class="status-item success">
+        <span class="status-icon">✅</span>
+        <span>Admin Portal: Ready</span>
+      </div>
+      <div class="status-item warning">
+        <span class="status-icon">⚠️</span>
+        <span>Firebase: Demo Mode (localStorage)</span>
+      </div>
+      <div class="status-item success">
+        <span class="status-icon">✅</span>
+        <span>Demo Admin Account: Active</span>
+      </div>
+    </div>
+
+    <div class="setup-section">
+      <h2>🚀 Get Started Immediately</h2>
+      <p>Your admin portal is already set up and running in <strong>Demo Mode</strong>. You can:</p>
+      <ul class="list">
+        <li>Login with demo credentials (no Firebase needed)</li>
+        <li>Test all features locally</li>
+        <li>Data saves to browser localStorage</li>
+        <li>Switch to Firebase anytime</li>
+      </ul>
+      <p style="margin-top: 20px; color: #f59e0b;">💡 <strong>Demo Mode:</strong> Everything works locally. When you add Firebase, your data syncs to the cloud automatically.</p>
+    </div>
+
+    <div class="setup-section">
+      <h2>🔐 Demo Admin Login</h2>
+      <div class="credentials">
+        <h3>Quick Start Credentials</h3>
+        <div class="credential-item">
+          <span class="label">Email:</span>
+          <span class="value">admin@krishnam.com</span>
+        </div>
+        <div class="credential-item">
+          <span class="label">Password:</span>
+          <span class="value">ccfcma074r@</span>
+        </div>
+        <div class="credential-item">
+          <span class="label">Mode:</span>
+          <span class="value">Demo (localStorage)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="setup-section">
+      <h2>📦 Optional: Setup Firebase (For Production)</h2>
+      <p>To switch from Demo mode to live Firebase cloud storage:</p>
+      <ol style="color: #b0b0b8; line-height: 2;">
+        <li>Go to <strong><a href="https://console.firebase.google.com/" target="_blank" style="color: #a855f7;">Firebase Console</a></strong></li>
+        <li>Create a new project (or use existing one)</li>
+        <li>Enable Authentication (Email/Password)</li>
+        <li>Create Firestore Database</li>
+        <li>Copy your Firebase Config</li>
+        <li>Open <code>js/firebase-config.js</code></li>
+        <li>Replace the <code>firebaseConfig</code> object with your credentials</li>
+        <li>Add admin user to Firebase Authentication</li>
+        <li>Refresh the page - it will auto-switch to Firebase mode</li>
+      </ol>
+    </div>
+
+    <div class="setup-section">
+      <h2>🎯 What You Can Do Right Now</h2>
+      <p>In Demo Mode, you can:</p>
+      <ul class="list">
+        <li>Login with demo credentials</li>
+        <li>View and manage contact messages</li>
+        <li>Add projects to your portfolio</li>
+        <li>Add certifications</li>
+        <li>Edit homepage content</li>
+        <li>View visitor analytics</li>
+        <li>Upload and manage resume</li>
+        <li>Toggle dark/light theme</li>
+        <li>All data persists in browser storage</li>
+      </ul>
+    </div>
+
+    <div class="setup-section">
+      <h2>⌨️ Access Your Admin Portal</h2>
+      <p>Press this keyboard shortcut from anywhere on your website:</p>
+      <div class="code-block">CTRL + F12  (Windows/Linux)
+or
+CMD + F12   (Mac)</div>
+      <p>Or visit directly: <code style="color: #a855f7;">/admin.html</code></p>
+    </div>
+
+    <div class="setup-section">
+      <h2>📝 Demo Data Examples</h2>
+      <p>Try submitting the contact form on your portfolio. The data will appear in:</p>
+      <ul class="list">
+        <li>Admin Dashboard → Messages section</li>
+        <li>Browser localStorage (inspect with F12 → Application)</li>
+        <li>Local analytics tracking</li>
+      </ul>
+    </div>
+
+    <div class="button-group">
+      <a href="/admin.html" class="btn btn-primary">🚀 Open Admin Portal</a>
+      <a href="/" class="btn btn-secondary">← Back to Portfolio</a>
+    </div>
+
+    <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(168, 85, 247, 0.2); text-align: center; color: #717180; font-size: 0.9rem;">
+      <p>✨ Premium Portfolio Admin System | Version 1.0</p>
+      <p>Demo Mode Active | Ready for Production Setup</p>
+    </div>
+  </div>
+</body>
+</html>
