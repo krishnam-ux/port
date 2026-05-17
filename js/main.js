@@ -385,6 +385,39 @@ class FormValidator {
 }
 
 // ============================================================================
+// ADMIN SHORTCUT - KEYBOARD NAVIGATION
+// ============================================================================
+
+class AdminShortcut {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    document.addEventListener('keydown', (e) => {
+      // Windows + K (or Cmd + K on Mac) to open admin panel
+      if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.openAdminPanel();
+      }
+    });
+  }
+
+  openAdminPanel() {
+    const currentPage = window.location.pathname;
+    
+    // If already on admin page, the admin.js will handle it
+    if (currentPage.includes('admin.html')) {
+      return;
+    }
+    
+    // Navigate to admin.html
+    window.location.href = 'admin.html';
+  }
+}
+
+// ============================================================================
 // INITIALIZATION
 // ============================================================================
 
@@ -397,4 +430,5 @@ document.addEventListener('DOMContentLoaded', () => {
   new FloatingParticles();
   new SmoothScroll();
   new PageTransition();
+  new AdminShortcut();
 });

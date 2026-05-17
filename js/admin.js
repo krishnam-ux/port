@@ -78,8 +78,8 @@ class AdminPortal {
    */
   setupKeyboardShortcut() {
     document.addEventListener('keydown', (e) => {
-      // Windows + K (or Cmd + K on Mac)
-      if (e.metaKey && (e.key === 'k' || e.key === 'K')) {
+      // Windows + K / Ctrl + K (or Cmd + K on Mac)
+      if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
         e.preventDefault();
         e.stopPropagation();
         this.toggleAdminPortal();
