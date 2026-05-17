@@ -43,7 +43,6 @@
   </script>
   
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO6CSZTHU61uLAKs5vUFsp9BmhtTIDXf0CL8S4Mwy6/d735nn+6eCuYXWf4pI35T+9c6b/cop4bbIN40zBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/premium-3d.css">
   <link rel="stylesheet" href="css/advanced-3d.css">
@@ -105,7 +104,7 @@
 
     .hero-content {
       display: grid;
-      grid-template-columns: 1.1fr 1.3fr 1fr;
+      grid-template-columns: 1.1fr 1.3fr;
       gap: 3rem;
       align-items: center;
       width: 100%;
@@ -124,6 +123,11 @@
     /* Hide the center column when image is missing */
     .hero-content.image-hidden .hero-center {
       display: none;
+    }
+
+    /* Hide the hero center (3D character) by default */
+    .hero-center {
+      display: none !important;
     }
 
     .hero-left {
@@ -1480,54 +1484,6 @@
         gap: 1rem;
       }
     }
-
-    /* ================================================
-       FONT AWESOME ICON STYLING
-       ================================================ */
-    .feature-icon i,
-    .cert-icon i,
-    .contact-icon i,
-    .project-image i,
-    .intro-image i {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-    }
-
-    .social-icons i,
-    .footer-social i {
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-    }
-
-    .feature-icon i {
-      font-size: 2.5rem;
-    }
-
-    .cert-icon i {
-      font-size: 2rem;
-    }
-
-    .contact-icon i {
-      font-size: 1.5rem;
-    }
-
-    .project-image i {
-      font-size: 2.5rem;
-      color: var(--purple-light);
-    }
-
-    .intro-image i {
-      font-size: 3.5rem;
-      color: var(--purple-light);
-    }
-
-    .cta-button i {
-      font-size: 1.1rem;
-      margin-right: 4px;
-    }
   </style>
 </head>
 <body>
@@ -1566,12 +1522,12 @@
         <p class="subtitle">AI & ML Enthusiast | Cloud & DevOps Learner</p>
         <p>Building intelligent digital solutions through AI, cloud technologies, and modern web experiences. Passionate about creating impactful tech innovations.</p>
         <div class="social-icons">
-          <a href="https://github.com/krishnam-ux" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/krishnam-dwivedi-229807355/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://www.instagram.com/dwivedi_krishnam/" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://topmate.io/krishnam_dwivedi" target="_blank" rel="noopener noreferrer" title="Topmate"><i class="fas fa-link"></i></a>
+          <a href="https://github.com/krishnam-ux" target="_blank" rel="noopener noreferrer" title="GitHub">🔗</a>
+          <a href="https://www.linkedin.com/in/krishnam-dwivedi-229807355/" target="_blank" rel="noopener noreferrer" title="LinkedIn">💼</a>
+          <a href="https://www.instagram.com/dwivedi_krishnam/" target="_blank" rel="noopener noreferrer" title="Instagram">📸</a>
+          <a href="https://topmate.io/krishnam_dwivedi" target="_blank" rel="noopener noreferrer" title="Topmate">🎯</a>
         </div>
-        <a href="file:///C:/Users/krish/Downloads/Profile%20(4).pdf" class="cta-button" download target="_blank" data-animate style="animation-delay: 0.4s;"><i class="fas fa-download"></i> Download Resume</a>
+        <a href="file:///C:/Users/krish/Downloads/Profile%20(4).pdf" class="cta-button" download target="_blank" data-animate style="animation-delay: 0.4s;">📥 Download Resume</a>
       </div>
 
       <div class="hero-center" data-parallax data-animate style="animation-delay: 0.1s;">
@@ -1593,10 +1549,10 @@
         <h2>Creative Developer & Innovator</h2>
         <p>Focused on creating impactful technology solutions and futuristic digital experiences. B.Tech CSE (AI & ML) student at Chandigarh University.</p>
         <div class="specialization">
-          <span><i class="fas fa-brain"></i> AI & ML</span>
-          <span><i class="fas fa-cloud"></i> Cloud Computing</span>
-          <span><i class="fas fa-rocket"></i> DevOps</span>
-          <span><i class="fas fa-bolt"></i> Web Dev</span>
+          <span>🤖 AI & ML</span>
+          <span>☁️ Cloud Computing</span>
+          <span>🚀 DevOps</span>
+          <span>⚡ Web Dev</span>
         </div>
       </div>
     </div>
@@ -1609,7 +1565,7 @@
   <!-- Intro Section -->
   <section class="intro-section">
     <div class="intro-container">
-      <div class="intro-image"><i class="fas fa-graduation-cap"></i></div>
+      <div class="intro-image">🎓</div>
       <div class="intro-content">
         <h3>About Me</h3>
         <p>I am Krishnam Dwivedi, a B.Tech CSE (AI & ML) student at Chandigarh University based in Lucknow, India. I'm passionate about Artificial Intelligence, Cloud Computing, DevOps, Web Development, and Digital Innovation. I enjoy building futuristic digital experiences and continuously learning new technologies to grow as a developer and future entrepreneur.</p>
@@ -1643,22 +1599,22 @@
     </div>
     <div class="features-grid">
       <div class="feature-card" data-animate>
-        <span class="feature-icon"><i class="fas fa-brain"></i></span>
+        <span class="feature-icon">🤖</span>
         <h3>AI & Machine Learning</h3>
         <p>Exploring machine learning models, data science, and intelligent algorithm development for real-world problems.</p>
       </div>
       <div class="feature-card" data-animate>
-        <span class="feature-icon"><i class="fas fa-cloud"></i></span>
+        <span class="feature-icon">☁️</span>
         <h3>Cloud Computing</h3>
         <p>Learning cloud platforms (Azure, Oracle Cloud) and infrastructure concepts for scalable solutions.</p>
       </div>
       <div class="feature-card" data-animate>
-        <span class="feature-icon"><i class="fas fa-rocket"></i></span>
+        <span class="feature-icon">🚀</span>
         <h3>DevOps & Tools</h3>
         <p>Understanding containerization, deployment strategies, and automation for modern development.</p>
       </div>
       <div class="feature-card" data-animate>
-        <span class="feature-icon"><i class="fas fa-laptop-code"></i></span>
+        <span class="feature-icon">💻</span>
         <h3>Web Development</h3>
         <p>Building responsive web applications with modern frameworks and technologies for great user experiences.</p>
       </div>
@@ -1707,37 +1663,37 @@
     </div>
     <div class="certs-grid">
       <div class="cert-card" data-animate>
-        <span class="cert-icon"><i class="fas fa-cloud"></i></span>
+        <span class="cert-icon">☁️</span>
         <h4>Azure Fundamentals</h4>
         <p>Microsoft (AZ-900)</p>
         <span class="cert-badge">Certified</span>
       </div>
       <div class="cert-card" data-animate>
-        <span class="cert-icon"><i class="fas fa-brain"></i></span>
+        <span class="cert-icon">🤖</span>
         <h4>Azure AI Fundamentals</h4>
         <p>Microsoft (AI-900)</p>
         <span class="cert-badge">Certified</span>
       </div>
       <div class="cert-card" data-animate>
-        <span class="cert-icon"><i class="fas fa-globe"></i></span>
+        <span class="cert-icon">🌐</span>
         <h4>OCI AI Foundations</h4>
         <p>Oracle Cloud (2025)</p>
         <span class="cert-badge">Certified</span>
       </div>
       <div class="cert-card" data-animate>
-        <span class="cert-icon"><i class="fas fa-lightbulb"></i></span>
+        <span class="cert-icon">🎯</span>
         <h4>Design Thinking</h4>
         <p>Enterprise Design Thinking</p>
         <span class="cert-badge">Certified</span>
       </div>
       <div class="cert-card" data-animate>
-        <span class="cert-icon"><i class="fas fa-server"></i></span>
+        <span class="cert-icon">💻</span>
         <h4>Nutanix Associate</h4>
         <p>Nutanix Certified (NCA 6)</p>
         <span class="cert-badge">Certified</span>
       </div>
       <div class="cert-card" data-animate>
-        <span class="cert-icon"><i class="fas fa-graduation-cap"></i></span>
+        <span class="cert-icon">🎓</span>
         <h4>CSE (AI & ML)</h4>
         <p>Chandigarh University</p>
         <span class="cert-badge">In Progress</span>
@@ -1753,7 +1709,7 @@
     </div>
     <div class="projects-grid">
       <div class="project-card" data-animate>
-        <div class="project-image"><i class="fas fa-brain"></i></div>
+        <div class="project-image">🤖</div>
         <div class="project-content">
           <span class="project-category">AI/ML</span>
           <h3>AI Learning Projects</h3>
@@ -1769,7 +1725,7 @@
         </div>
       </div>
       <div class="project-card" data-animate>
-        <div class="project-image"><i class="fas fa-cloud"></i></div>
+        <div class="project-image">☁️</div>
         <div class="project-content">
           <span class="project-category">Cloud</span>
           <h3>Cloud Exploration</h3>
@@ -1785,7 +1741,7 @@
         </div>
       </div>
       <div class="project-card" data-animate>
-        <div class="project-image"><i class="fas fa-laptop-code"></i></div>
+        <div class="project-image">💻</div>
         <div class="project-content">
           <span class="project-category">Web Dev</span>
           <h3>Web Applications</h3>
@@ -1801,7 +1757,7 @@
         </div>
       </div>
       <div class="project-card" data-animate>
-        <div class="project-image"><i class="fas fa-microchip"></i></div>
+        <div class="project-image">🚀</div>
         <div class="project-content">
           <span class="project-category">Innovation</span>
           <h3>IoT & Robotics</h3>
@@ -1835,14 +1791,14 @@
     <div class="contact-container">
       <div class="contact-methods">
         <a href="mailto:krishnamdwivedi17@gmail.com" class="contact-method" data-animate>
-          <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+          <span class="contact-icon">📧</span>
           <div>
             <h4>Email</h4>
             <p>krishnamdwivedi17@gmail.com</p>
           </div>
         </a>
         <a href="https://www.linkedin.com/in/krishnam-dwivedi-229807355/" target="_blank" rel="noopener noreferrer" class="contact-method" data-animate>
-          <span class="contact-icon"><i class="fab fa-linkedin-in"></i></span>
+          <span class="contact-icon">💼</span>
           <div>
             <h4>LinkedIn</h4>
             <p>Connect with me on LinkedIn</p>
@@ -1878,10 +1834,10 @@
         <h2>Krishnam Dwivedi</h2>
         <p>AI & ML Enthusiast | B.Tech CSE Student | Cloud & DevOps Learner | Building the future of technology.</p>
         <div class="footer-social">
-          <a href="https://github.com/krishnam-ux" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/krishnam-dwivedi-229807355/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://www.instagram.com/dwivedi_krishnam/" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://topmate.io/krishnam_dwivedi" target="_blank" rel="noopener noreferrer" title="Topmate"><i class="fas fa-link"></i></a>
+          <a href="https://github.com/krishnam-ux" target="_blank" rel="noopener noreferrer" title="GitHub">🔗</a>
+          <a href="https://www.linkedin.com/in/krishnam-dwivedi-229807355/" target="_blank" rel="noopener noreferrer" title="LinkedIn">💼</a>
+          <a href="https://www.instagram.com/dwivedi_krishnam/" target="_blank" rel="noopener noreferrer" title="Instagram">📸</a>
+          <a href="https://topmate.io/krishnam_dwivedi" target="_blank" rel="noopener noreferrer" title="Topmate">🎯</a>
         </div>
       </div>
       <div class="footer-nav">
