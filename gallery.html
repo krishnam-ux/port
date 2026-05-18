@@ -3,210 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery - Krishnam Dwivedi | Coming Soon</title>
+  <title>Gallery - Krishnam Dwivedi | AI & Web Development Portfolio</title>
   
-  <meta name="description" content="Gallery coming soon - Premium visual experience being curated.">
-  <meta name="keywords" content="gallery, coming soon, portfolio">
+  <meta name="description" content="Gallery - Visual portfolio of projects, designs, and achievements.">
+  <meta name="keywords" content="gallery, portfolio, projects, designs">
   
   <meta property="og:title" content="Gallery - Krishnam Dwivedi">
-  <meta property="og:description" content="Gallery - Coming Soon">
+  <meta property="og:description" content="Visual portfolio gallery showcasing projects and designs">
   
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/premium-3d.css">
   <link rel="stylesheet" href="css/advanced-3d.css">
   <style>
-    .coming-soon-section {
+    .gallery-section {
+      padding: 100px 20px;
       min-height: 100vh;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: rgba(31, 31, 46, 0.4);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      transition: all var(--transition-normal);
+      aspect-ratio: 1;
+    }
+
+    .gallery-item:hover {
+      border-color: rgba(168, 85, 247, 0.4);
+      box-shadow: 0 12px 40px rgba(168, 85, 247, 0.2);
+      transform: translateY(-8px);
+    }
+
+    .gallery-image-container {
+      width: 100%;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 100px 20px 20px;
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(13, 110, 253, 0.05));
+      position: relative;
+      overflow: hidden;
     }
 
-    .coming-soon-container {
-      text-align: center;
-      max-width: 600px;
-      z-index: 1;
-    }
-
-    .coming-soon-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, rgba(217, 70, 239, 0.3), rgba(13, 110, 253, 0.2));
-      border: 1px solid rgba(168, 85, 247, 0.4);
-      color: var(--purple-light);
-      padding: 12px 24px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 2rem;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .coming-soon-icon {
-      font-size: 5rem;
-      margin-bottom: 2rem;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    .coming-soon-title {
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, #ffffff 0%, #d946ef 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .coming-soon-description {
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
-      line-height: 1.8;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .coming-soon-message {
-      background: rgba(31, 31, 46, 0.5);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      margin-bottom: 2rem;
-      color: var(--text-secondary);
-    }
-
-    .coming-soon-cta {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .floating-elements {
-      position: absolute;
+    .gallery-image {
       width: 100%;
       height: 100%;
-      overflow: hidden;
-      z-index: 0;
+      object-fit: cover;
+      transition: transform var(--transition-normal);
     }
 
-    .floating-box {
+    .gallery-item:hover .gallery-image {
+      transform: scale(1.05);
+    }
+
+    .gallery-placeholder {
+      font-size: 4rem;
+      opacity: 0.5;
+    }
+
+    .gallery-overlay {
       position: absolute;
-      width: 100px;
-      height: 100px;
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      border-radius: 12px;
-      animation: float-random 15s infinite;
-    }
-
-    .floating-box:nth-child(1) {
-      top: 10%;
-      left: 10%;
-      animation-delay: 0s;
-    }
-
-    .floating-box:nth-child(2) {
-      top: 50%;
-      right: 10%;
-      animation-delay: 2s;
-    }
-
-    .floating-box:nth-child(3) {
-      bottom: 10%;
-      left: 20%;
-      animation-delay: 4s;
-    }
-
-    .floating-box:nth-child(4) {
-      top: 30%;
-      right: 30%;
-      animation-delay: 6s;
-    }
-
-    @keyframes float-random {
-      0%, 100% {
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 0.1;
-      }
-      25% {
-        transform: translate(30px, -40px) rotate(90deg);
-        opacity: 0.3;
-      }
-      50% {
-        transform: translate(-20px, 50px) rotate(180deg);
-        opacity: 0.2;
-      }
-      75% {
-        transform: translate(40px, 20px) rotate(270deg);
-        opacity: 0.15;
-      }
-    }
-
-    .notify-form {
+      inset: 0;
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(13, 110, 253, 0.1));
+      opacity: 0;
+      transition: opacity var(--transition-normal);
       display: flex;
-      gap: 0.5rem;
-      max-width: 400px;
-      margin: 0 auto;
+      align-items: flex-end;
+      padding: 1.5rem;
     }
 
-    .notify-form input {
-      flex: 1;
-      padding: 12px 16px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(168, 85, 247, 0.3);
-      border-radius: 8px;
-      color: var(--text-primary);
-      font-size: 0.95rem;
-      transition: all var(--transition-normal);
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
     }
 
-    .notify-form input:focus {
-      outline: none;
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--purple-light);
-      box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
-    }
-
-    .notify-form input::placeholder {
-      color: var(--text-tertiary);
-    }
-
-    .notify-form button {
-      padding: 12px 24px;
-      background: linear-gradient(135deg, var(--purple-primary), var(--purple-light));
-      border: none;
-      border-radius: 8px;
+    .gallery-title {
       color: white;
       font-weight: 600;
-      cursor: pointer;
-      transition: all var(--transition-normal);
+      font-size: 0.95rem;
     }
 
-    .notify-form button:hover {
-      box-shadow: 0 8px 24px rgba(168, 85, 247, 0.3);
-      transform: translateY(-2px);
+    .empty-gallery {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: rgba(31, 31, 46, 0.3);
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(168, 85, 247, 0.2);
+    }
+
+    .empty-gallery-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      opacity: 0.6;
+    }
+
+    .empty-gallery-text {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .empty-gallery-subtext {
+      color: var(--text-tertiary);
+      font-size: 0.95rem;
     }
 
     @media (max-width: 768px) {
-      .coming-soon-section {
-        padding-top: 80px;
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
       }
 
-      .coming-soon-title {
-        font-size: 2.5rem;
-      }
-
-      .coming-soon-description {
-        font-size: 1rem;
-      }
-
-      .floating-box {
-        display: none;
+      .gallery-section {
+        padding: 80px 15px;
       }
     }
   </style>
@@ -234,37 +152,22 @@
     </ul>
   </nav>
 
-  <section class="coming-soon-section">
-    <div class="floating-elements">
-      <div class="floating-box"></div>
-      <div class="floating-box"></div>
-      <div class="floating-box"></div>
-      <div class="floating-box"></div>
-    </div>
-
-    <div class="coming-soon-container" data-animate>
-      <div class="coming-soon-badge">✨ Under Development</div>
-      
-      <div class="coming-soon-icon">🎨</div>
-      
-      <h1 class="coming-soon-title">Gallery Coming Soon</h1>
-      
-      <p class="coming-soon-description">
-        This section is currently being curated and updated to deliver a premium visual experience showcasing the best of my work and creative projects.
-      </p>
-
-      <div class="coming-soon-message">
-        <p>
-          I'm meticulously organizing a collection of high-quality visuals, project showcases, and creative work. The gallery will feature behind-the-scenes content, project highlights, and visual storytelling that represents my journey as an AI entrepreneur and developer.
-        </p>
-        <p style="margin-top: 1rem;">
-          🎯 Expected Launch: Coming This Quarter
-        </p>
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Visual Gallery</h2>
+        <div class="accent-line"></div>
+        <p style="margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Explore visual moments from my journey in technology, design, and innovation.</p>
       </div>
 
-      <div class="coming-soon-cta">
-        <a href="index.html" class="btn btn-primary">Return Home</a>
-        <a href="contact.html" class="btn btn-secondary">Get Notified</a>
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Gallery items will be loaded here dynamically -->
+        <div class="empty-gallery">
+          <div class="empty-gallery-icon">🖼️</div>
+          <div class="empty-gallery-text">Gallery is being curated</div>
+          <div class="empty-gallery-subtext">Check back soon for visual content</div>
+        </div>
       </div>
     </div>
   </section>
@@ -272,5 +175,83 @@
   <script src="js/main.js"></script>
   <script src="js/premium-3d.js"></script>
   <script src="js/advanced-3d.js"></script>
+  <script>
+    let galleryLoaded = false;
+
+    function checkSectionVisibility() {
+      try {
+        const visibilityData = localStorage.getItem('cms_visibility_gallery');
+        const galleryGrid = document.getElementById('galleryGrid');
+        
+        if (!visibilityData) return; // All sections active by default
+        
+        const data = JSON.parse(visibilityData);
+        if (!data.visible) {
+          // Hide gallery and show message
+          galleryGrid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 4rem 2rem; background: rgba(31, 31, 46, 0.3); border-radius: var(--radius-lg); border: 1px dashed rgba(168, 85, 247, 0.2);">
+              <div style="font-size: 4rem; margin-bottom: 1rem; opacity: 0.6;">🔒</div>
+              <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 0.5rem;">${data.message || 'This section is currently disabled.'}</p>
+              <p style="color: var(--text-tertiary); font-size: 0.9rem;">Check back soon for updates!</p>
+            </div>
+          `;
+        }
+      } catch (error) {
+        console.log('Visibility check complete');
+      }
+    }
+
+    function renderGalleryItem(image) {
+      return `
+        <div class="gallery-item" data-animate>
+          <div class="gallery-image-container">
+            <img src="${image.url}" alt="${image.title || 'Gallery Image'}" class="gallery-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Crect fill=%22%23222%22 width=%22300%22 height=%22300%22/%3E%3Ctext fill=%22%23666%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2224%22 font-family=%22Arial%22%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="gallery-overlay">
+              <div class="gallery-title">${image.title || 'Untitled'}</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function loadGalleryFromAdmin() {
+      if (galleryLoaded) return;
+
+      try {
+        const galleryData = localStorage.getItem('cms_gallery_published');
+        const galleryGrid = document.getElementById('galleryGrid');
+
+        if (!galleryData) return;
+
+        const gallery = JSON.parse(galleryData);
+        if (!Array.isArray(gallery) || gallery.length === 0) return;
+
+        // Clear empty state
+        galleryGrid.innerHTML = '';
+
+        // Render gallery items
+        gallery.forEach(image => {
+          galleryGrid.innerHTML += renderGalleryItem(image);
+        });
+
+        console.log(`✅ Loaded ${gallery.length} gallery images from Admin CMS`);
+        galleryLoaded = true;
+      } catch (error) {
+        console.log('ℹ️ No gallery images published yet');
+      }
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      checkSectionVisibility();
+      loadGalleryFromAdmin();
+    });
+
+    // Check visibility every 3 seconds
+    setInterval(checkSectionVisibility, 3000);
+
+    // Check for new gallery images every 3 seconds
+    setInterval(loadGalleryFromAdmin, 3000);
+  </script>
 </body>
 </html>

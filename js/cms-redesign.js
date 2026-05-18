@@ -8,6 +8,8 @@ class CMSRedesign {
     this.currentSection = 'dashboard';
     this.publishedData = {};
     this.draftData = {};
+    this.editingProjectId = null;
+    this.editingCertId = null;
     this.init();
   }
 
@@ -63,7 +65,97 @@ class CMSRedesign {
 
     // Global publish
     document.querySelector('.navbar-btn.publish')?.addEventListener('click', () => this.publishAll());
+
+    // Section visibility toggles
+    document.querySelectorAll('.section-toggle').forEach(toggle => {
+      const section = toggle.getAttribute('data-section');
+      
+      // Load saved state
+      this.loadSectionVisibility(section);
+      
+      // Toggle visual on click
+      const visual = document.getElementById(`toggle-${section}-visual`);
+      if (visual) {
+        visual.addEventListener('click', () => {
+          toggle.checked = !toggle.checked;
+          this.updateToggleVisual(section, toggle.checked);
+        });
+      }
+    });
+
+    // Save section settings
+    document.getElementById('saveSectionSettings')?.addEventListener('click', () => this.saveSectionSettings());
   }
+
+  // ============================================================================
+  // SECTION VISIBILITY CONTROLS
+  // ============================================================================
+
+  loadSectionVisibility(section) {
+    try {
+      const visibility = localStorage.getItem(`cms_visibility_${section}`);
+      const toggle = document.getElementById(`toggle-${section}`);
+      const message = document.getElementById(`message-${section}`);
+      
+      if (visibility) {
+        const data = JSON.parse(visibility);
+        toggle.checked = data.visible;
+        if (message) message.value = data.message || '';
+        this.updateToggleVisual(section, data.visible);
+      } else {
+        toggle.checked = true;
+        this.updateToggleVisual(section, true);
+      }
+    } catch (error) {
+      console.log('Error loading section visibility:', section);
+    }
+  }
+
+  updateToggleVisual(section, isVisible) {
+    const visual = document.getElementById(`toggle-${section}-visual`);
+    const status = document.getElementById(`status-${section}`);
+    
+    if (visual) {
+      const span = visual.querySelector('span');
+      if (isVisible) {
+        visual.style.background = '#4ade80';
+        span.style.transform = 'translateX(22px)';
+        if (status) status.textContent = 'Active';
+        if (status) status.style.color = '#4ade80';
+      } else {
+        visual.style.background = '#ef4444';
+        span.style.transform = 'translateX(0)';
+        if (status) status.textContent = 'Hidden';
+        if (status) status.style.color = '#ef4444';
+      }
+    }
+  }
+
+  saveSectionSettings() {
+    const sections = ['projects', 'gallery', 'certifications', 'hero', 'about', 'skills'];
+    
+    sections.forEach(section => {
+      const toggle = document.getElementById(`toggle-${section}`);
+      const message = document.getElementById(`message-${section}`);
+      
+      if (toggle) {
+        const data = {
+          visible: toggle.checked,
+          message: message?.value || `This section is currently disabled. Check back soon!`
+        };
+        
+        localStorage.setItem(`cms_visibility_${section}`, JSON.stringify(data));
+      }
+    });
+
+    this.showNotification('✅ Section settings saved and synced to website!', 'success');
+    
+    // Sync to website
+    window.dispatchEvent(new CustomEvent('sectionSettingsUpdated', {
+      detail: { timestamp: new Date().toISOString() }
+    }));
+  }
+
 
   // ============================================================================
   // SECTION SWITCHING - Smooth Transitions
@@ -186,7 +278,7 @@ class CMSRedesign {
       description: document.getElementById('projectDescription').value,
       tech: document.getElementById('projectTech').value.split(',').map(t => t.trim()),
       github: document.getElementById('projectGithub').value,
-      id: Date.now()
+      id: this.editingProjectId || Date.now()
     };
 
     if (!projectData.name) {
@@ -198,10 +290,23 @@ class CMSRedesign {
       this.publishedData.projects = [];
     }
 
-    this.publishedData.projects.push(projectData);
-    localStorage.setItem('cms_projects_published', JSON.stringify(this.publishedData.projects));
+    if (this.editingProjectId) {
+      // UPDATE existing project
+      const index = this.publishedData.projects.findIndex(p => p.id === this.editingProjectId);
+      if (index !== -1) {
+        this.publishedData.projects[index] = projectData;
+        this.showNotification('✅ Project updated!', 'success');
+        this.editingProjectId = null;
+        const btn = document.getElementById('saveProject');
+        if (btn) btn.textContent = '➕ Add Project';
+      }
+    } else {
+      // CREATE new project
+      this.publishedData.projects.push(projectData);
+      this.showNotification('✅ Project added!', 'success');
+    }
 
-    this.showNotification('✅ Project added!', 'success');
+    localStorage.setItem('cms_projects_published', JSON.stringify(this.publishedData.projects));
     this.updateProjectsList();
     this.clearProjectForm();
   }
@@ -211,6 +316,27 @@ class CMSRedesign {
     document.getElementById('projectDescription').value = '';
     document.getElementById('projectTech').value = '';
     document.getElementById('projectGithub').value = '';
+    this.editingProjectId = null;
+    const btn = document.getElementById('saveProject');
+    if (btn) btn.textContent = '➕ Add Project';
+  }
+
+  editProject(id) {
+    const project = this.publishedData.projects.find(p => p.id === id);
+    if (!project) return;
+
+    document.getElementById('projectName').value = project.name;
+    document.getElementById('projectDescription').value = project.description;
+    document.getElementById('projectTech').value = project.tech.join(', ');
+    document.getElementById('projectGithub').value = project.github;
+
+    this.editingProjectId = id;
+    const btn = document.getElementById('saveProject');
+    if (btn) btn.textContent = '💾 Update Project';
+
+    // Scroll to form
+    document.getElementById('projectName').scrollIntoView({behavior: 'smooth'});
+    this.showNotification('✏️ Edit mode - Update and save your changes', 'info');
   }
 
   updateProjectsList() {
@@ -226,6 +352,7 @@ class CMSRedesign {
       <div class="preview-item">
         <strong>${project.name}</strong><br>
         <small>${project.tech.join(', ')}</small><br>
+        <button class="btn-cms secondary" style="margin-top: 5px; margin-right: 5px; padding: 4px 8px; font-size: 0.8rem;" onclick="cmsInstance.editProject(${project.id})">✏️ Edit</button>
         <button class="btn-cms secondary" style="margin-top: 5px; padding: 4px 8px; font-size: 0.8rem;" onclick="cmsInstance.deleteProject(${project.id})">🗑️ Delete</button>
       </div>
     `).join('');
@@ -318,7 +445,7 @@ class CMSRedesign {
       name: document.getElementById('certName').value,
       issuer: document.getElementById('certIssuer').value,
       link: document.getElementById('certLink').value,
-      id: Date.now()
+      id: this.editingCertId || Date.now()
     };
 
     if (!certData.name) {
@@ -330,10 +457,23 @@ class CMSRedesign {
       this.publishedData.certifications = [];
     }
 
-    this.publishedData.certifications.push(certData);
-    localStorage.setItem('cms_certifications_published', JSON.stringify(this.publishedData.certifications));
+    if (this.editingCertId) {
+      // UPDATE existing certification
+      const index = this.publishedData.certifications.findIndex(c => c.id === this.editingCertId);
+      if (index !== -1) {
+        this.publishedData.certifications[index] = certData;
+        this.showNotification('✅ Certification updated!', 'success');
+        this.editingCertId = null;
+        const btn = document.getElementById('saveCert');
+        if (btn) btn.textContent = '➕ Add Certification';
+      }
+    } else {
+      // CREATE new certification
+      this.publishedData.certifications.push(certData);
+      this.showNotification('✅ Certification added!', 'success');
+    }
 
-    this.showNotification('✅ Certification added!', 'success');
+    localStorage.setItem('cms_certifications_published', JSON.stringify(this.publishedData.certifications));
     this.updateCertsList();
     this.clearCertForm();
   }
@@ -342,6 +482,26 @@ class CMSRedesign {
     document.getElementById('certName').value = '';
     document.getElementById('certIssuer').value = '';
     document.getElementById('certLink').value = '';
+    this.editingCertId = null;
+    const btn = document.getElementById('saveCert');
+    if (btn) btn.textContent = '➕ Add Certification';
+  }
+
+  editCert(id) {
+    const cert = this.publishedData.certifications.find(c => c.id === id);
+    if (!cert) return;
+
+    document.getElementById('certName').value = cert.name;
+    document.getElementById('certIssuer').value = cert.issuer;
+    document.getElementById('certLink').value = cert.link;
+
+    this.editingCertId = id;
+    const btn = document.getElementById('saveCert');
+    if (btn) btn.textContent = '💾 Update Certification';
+
+    // Scroll to form
+    document.getElementById('certName').scrollIntoView({behavior: 'smooth'});
+    this.showNotification('✏️ Edit mode - Update and save your changes', 'info');
   }
 
   updateCertsList() {
@@ -357,6 +517,7 @@ class CMSRedesign {
       <div class="preview-item">
         <strong>${cert.name}</strong><br>
         <small>${cert.issuer}</small><br>
+        <button class="btn-cms secondary" style="margin-top: 5px; margin-right: 5px; padding: 4px 8px; font-size: 0.8rem;" onclick="cmsInstance.editCert(${cert.id})">✏️ Edit</button>
         <button class="btn-cms secondary" style="margin-top: 5px; padding: 4px 8px; font-size: 0.8rem;" onclick="cmsInstance.deleteCert(${cert.id})">🗑️ Delete</button>
       </div>
     `).join('');

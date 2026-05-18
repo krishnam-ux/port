@@ -204,6 +204,17 @@
       display: none;
     }
 
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media (max-width: 768px) {
       .projects-grid {
         grid-template-columns: 1fr;
@@ -255,129 +266,8 @@
       </div>
 
       <!-- Projects Grid -->
-      <div class="projects-grid">
-        <!-- Azure DevOps Project -->
-        <div class="project-card project-item" data-category="cloud" data-animate>
-          <div class="project-image">☁️</div>
-          <div class="project-content">
-            <span class="project-tag">Cloud & DevOps</span>
-            <span class="status-badge">🔄 Learning Phase</span>
-            <h3 class="project-title">Azure DevOps Project</h3>
-            <p class="project-description">Actively exploring Azure and Oracle Cloud technologies while learning cloud infrastructure, version control systems, and deployment fundamentals. This is an ongoing learning journey.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Azure DevOps</span>
-              <span class="tech-tag">Git</span>
-              <span class="tech-tag">GitHub</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/krishnam-ux/azure-devops-project1" class="project-link" target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; margin-right: 6px; vertical-align: middle;">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                View in GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Student Performance Prediction -->
-        <div class="project-card project-item" data-category="ai" data-animate>
-          <div class="project-image">🎓</div>
-          <div class="project-content">
-            <span class="project-tag">AI & ML</span>
-            <span class="status-badge">⚙️ Under Development</span>
-            <h3 class="project-title">Student Performance Prediction</h3>
-            <p class="project-description">Currently working on beginner-friendly machine learning projects using Python and data analysis concepts. Building a model to predict student performance as part of my AI learning journey.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Machine Learning</span>
-              <span class="tech-tag">Random Forest</span>
-              <span class="tech-tag">Jupyter</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/krishnam-ux/Student-performance-prediction" class="project-link" target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; margin-right: 6px; vertical-align: middle;">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                View in GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Spam Detection Project -->
-        <div class="project-card project-item" data-category="ai" data-animate>
-          <div class="project-image">🛡️</div>
-          <div class="project-content">
-            <span class="project-tag">AI & ML</span>
-            <span class="status-badge">⚙️ Under Development</span>
-            <h3 class="project-title">Spam Detection Project</h3>
-            <p class="project-description">Currently working on beginner-friendly AI and machine learning projects using Python and data analysis concepts. Building a spam classifier as part of my learning journey.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Machine Learning</span>
-              <span class="tech-tag">TF-IDF</span>
-              <span class="tech-tag">Naive Bayes</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/krishnam-ux/spam-detection-project" class="project-link" target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; margin-right: 6px; vertical-align: middle;">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                View in GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sentiment Analysis Project -->
-        <div class="project-card project-item" data-category="ai" data-animate>
-          <div class="project-image">😊</div>
-          <div class="project-content">
-            <span class="project-tag">AI & ML</span>
-            <span class="status-badge">🔄 Learning Phase</span>
-            <h3 class="project-title">Sentiment Analysis Project</h3>
-            <p class="project-description">Currently working on beginner-friendly AI and machine learning projects using Python and NLP concepts. Exploring sentiment analysis techniques as part of my continuous learning journey.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Scikit-learn</span>
-              <span class="tech-tag">NLP</span>
-              <span class="tech-tag">ML</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/krishnam-ux/sentiment-analysis-project" class="project-link" target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; margin-right: 6px; vertical-align: middle;">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                View in GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Program01_ProfileScreen -->
-        <div class="project-card project-item" data-category="frontend" data-animate>
-          <div class="project-image">🎨</div>
-          <div class="project-content">
-            <span class="project-tag">Frontend</span>
-            <span class="status-badge">🚀 Currently Building</span>
-            <h3 class="project-title">Program01_ProfileScreen</h3>
-            <p class="project-description">Building responsive frontend websites and improving UI/UX development skills using HTML, CSS, and JavaScript. Creating modern, interactive profile screens as part of my frontend learning.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Frontend</span>
-              <span class="tech-tag">UI/UX</span>
-              <span class="tech-tag">Design</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/krishnam-ux/Program01_ProfileScreen" class="project-link" target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; margin-right: 6px; vertical-align: middle;">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                View in GitHub
-              </a>
-            </div>
-          </div>
-        </div>
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Projects will be loaded here dynamically -->
       </div>
     </div>
   </section>
@@ -386,8 +276,177 @@
   <script src="js/premium-3d.js"></script>
   <script src="js/advanced-3d.js"></script>
   <script>
-    // Project filtering
-    document.addEventListener('DOMContentLoaded', () => {
+    // ============================================================================
+    // Load Projects with CMS Integration
+    // ============================================================================
+    
+    const STATIC_PROJECTS = [
+      {
+        id: 'azure-devops',
+        name: 'Azure DevOps Project',
+        description: 'Actively exploring Azure and Oracle Cloud technologies while learning cloud infrastructure, version control systems, and deployment fundamentals. This is an ongoing learning journey.',
+        category: 'cloud',
+        image: '☁️',
+        status: '🔄 Learning Phase',
+        tech: ['Azure DevOps', 'Git', 'GitHub'],
+        github: 'https://github.com/krishnam-ux/azure-devops-project1',
+        tag: 'Cloud & DevOps'
+      },
+      {
+        id: 'student-performance',
+        name: 'Student Performance Prediction',
+        description: 'Currently working on beginner-friendly machine learning projects using Python and data analysis concepts. Building a model to predict student performance as part of my AI learning journey.',
+        category: 'ai',
+        image: '🎓',
+        status: '⚙️ Under Development',
+        tech: ['Python', 'Machine Learning', 'Random Forest', 'Jupyter'],
+        github: 'https://github.com/krishnam-ux/Student-performance-prediction',
+        tag: 'AI & ML'
+      },
+      {
+        id: 'spam-detection',
+        name: 'Spam Detection Project',
+        description: 'Currently working on beginner-friendly AI and machine learning projects using Python and data analysis concepts. Building a spam classifier as part of my learning journey.',
+        category: 'ai',
+        image: '🛡️',
+        status: '⚙️ Under Development',
+        tech: ['Python', 'Machine Learning', 'TF-IDF', 'Naive Bayes'],
+        github: 'https://github.com/krishnam-ux/spam-detection-project',
+        tag: 'AI & ML'
+      },
+      {
+        id: 'sentiment-analysis',
+        name: 'Sentiment Analysis Project',
+        description: 'Currently working on beginner-friendly AI and machine learning projects using Python and NLP concepts. Exploring sentiment analysis techniques as part of my continuous learning journey.',
+        category: 'ai',
+        image: '😊',
+        status: '🔄 Learning Phase',
+        tech: ['Python', 'Scikit-learn', 'NLP', 'ML'],
+        github: 'https://github.com/krishnam-ux/sentiment-analysis-project',
+        tag: 'AI & ML'
+      },
+      {
+        id: 'profile-screen',
+        name: 'Program01_ProfileScreen',
+        description: 'Building responsive frontend websites and improving UI/UX development skills using HTML, CSS, and JavaScript. Creating modern, interactive profile screens as part of my frontend learning.',
+        category: 'frontend',
+        image: '🎨',
+        status: '🚀 Currently Building',
+        tech: ['Frontend', 'UI/UX', 'Design'],
+        github: 'https://github.com/krishnam-ux/Program01_ProfileScreen',
+        tag: 'Frontend'
+      }
+    ];
+
+    let cmsProjectsLoaded = false;
+    
+    function renderProject(project) {
+      const techTags = Array.isArray(project.tech) ? project.tech : [];
+      
+      return `
+        <div class="project-card project-item" data-category="${project.category}" data-animate>
+          <div class="project-image">${project.image}</div>
+          <div class="project-content">
+            <span class="project-tag">${project.tag}</span>
+            <span class="status-badge">${project.status}</span>
+            <h3 class="project-title">${project.name}</h3>
+            <p class="project-description">${project.description}</p>
+            <div class="project-tech">
+              ${techTags.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+            </div>
+            <div class="project-links">
+              <a href="${project.github}" class="project-link" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; margin-right: 6px; vertical-align: middle;">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                View in GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function initializeProjects() {
+      // Check visibility FIRST before doing anything
+      try {
+        const visibilityData = localStorage.getItem('cms_visibility_projects');
+        if (visibilityData) {
+          const data = JSON.parse(visibilityData);
+          if (!data.visible) {
+            // Section is disabled - show message only
+            const projectsGrid = document.getElementById('projectsGrid');
+            projectsGrid.innerHTML = `
+              <div style="grid-column: 1/-1; text-align: center; padding: 4rem 2rem; background: rgba(31, 31, 46, 0.3); border-radius: var(--radius-lg); border: 1px dashed rgba(168, 85, 247, 0.2);">
+                <div style="font-size: 4rem; margin-bottom: 1rem; opacity: 0.6;">🔒</div>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 0.5rem;">${data.message || 'This section is currently disabled.'}</p>
+                <p style="color: var(--text-tertiary); font-size: 0.9rem;">Check back soon for updates!</p>
+              </div>
+            `;
+            const filter = document.querySelector('.projects-filter');
+            if (filter) filter.style.display = 'none';
+            return; // Don't load any projects
+          }
+        }
+      } catch (error) {
+        console.log('Visibility check error');
+      }
+      
+      const projectsGrid = document.getElementById('projectsGrid');
+      
+      // Render static projects
+      const staticHTML = STATIC_PROJECTS.map(renderProject).join('');
+      projectsGrid.innerHTML = staticHTML;
+      
+      // Load CMS projects if available
+      loadCMSProjects();
+      
+      // Setup filtering
+      setupFiltering();
+    }
+
+    function loadCMSProjects() {
+      if (cmsProjectsLoaded) return;
+      
+      try {
+        const cmsProjects = localStorage.getItem('cms_projects_published');
+        const projectsGrid = document.getElementById('projectsGrid');
+        
+        if (!cmsProjects) return;
+        
+        const projects = JSON.parse(cmsProjects);
+        if (!Array.isArray(projects) || projects.length === 0) return;
+        
+        // Render CMS projects
+        projects.forEach(project => {
+          const techTags = Array.isArray(project.tech) ? project.tech : (typeof project.tech === 'string' ? project.tech.split(',').map(t => t.trim()) : []);
+          
+          const cmsProject = {
+            id: project.id,
+            name: project.name,
+            description: project.description,
+            category: 'cms',
+            image: '💡',
+            status: '🔄 Recently Added',
+            tech: techTags,
+            github: project.github || '#',
+            tag: 'Admin Project'
+          };
+          
+          projectsGrid.innerHTML += renderProject(cmsProject);
+        });
+        
+        console.log(`✅ Loaded ${projects.length} projects from Admin CMS`);
+        cmsProjectsLoaded = true;
+        
+        // Re-setup filtering to include new projects
+        setupFiltering();
+      } catch (error) {
+        console.log('ℹ️ No CMS projects available');
+      }
+    }
+
+    function setupFiltering() {
       const filterBtns = document.querySelectorAll('.filter-btn');
       const projectCards = document.querySelectorAll('.project-item');
 
@@ -411,7 +470,43 @@
           });
         });
       });
+    }
+
+    function checkSectionVisibility() {
+      try {
+        const visibilityData = localStorage.getItem('cms_visibility_projects');
+        const projectsGrid = document.getElementById('projectsGrid');
+        
+        if (!visibilityData) return; // All sections active by default
+        
+        const data = JSON.parse(visibilityData);
+        if (!data.visible) {
+          // Hide projects and show message
+          projectsGrid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 4rem 2rem; background: rgba(31, 31, 46, 0.3); border-radius: var(--radius-lg); border: 1px dashed rgba(168, 85, 247, 0.2);">
+              <div style="font-size: 4rem; margin-bottom: 1rem; opacity: 0.6;">🔒</div>
+              <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 0.5rem;">${data.message || 'This section is currently disabled.'}</p>
+              <p style="color: var(--text-tertiary); font-size: 0.9rem;">Check back soon for updates!</p>
+            </div>
+          `;
+          document.querySelector('.projects-filter').style.display = 'none';
+        }
+      } catch (error) {
+        console.log('Visibility check complete');
+      }
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      checkSectionVisibility();
+      initializeProjects();
     });
+    
+    // Check visibility every 3 seconds
+    setInterval(checkSectionVisibility, 3000);
+    
+    // Check for new projects every 3 seconds
+    setInterval(loadCMSProjects, 3000);
   </script>
 </body>
 </html>

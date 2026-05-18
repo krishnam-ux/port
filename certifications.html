@@ -251,7 +251,8 @@
       </div>
 
       <!-- Certifications Grid -->
-      <div class="certifications-grid">
+      <div class="certifications-grid" id="certificationsGrid">
+        <!-- Certifications will be loaded here dynamically -->
         <!-- Microsoft Azure Fundamentals -->
         <div class="certification-card" data-animate>
           <div class="certification-badge featured">Featured</div>
@@ -350,5 +351,89 @@
   <script src="js/main.js"></script>
   <script src="js/premium-3d.js"></script>
   <script src="js/advanced-3d.js"></script>
+  <script>
+    let certificationsLoaded = false;
+
+    function checkSectionVisibility() {
+      try {
+        const visibilityData = localStorage.getItem('cms_visibility_certifications');
+        const certificationsGrid = document.getElementById('certificationsGrid');
+        
+        if (!visibilityData) return; // All sections active by default
+        
+        const data = JSON.parse(visibilityData);
+        if (!data.visible) {
+          // Show only the message
+          certificationsGrid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 4rem 2rem; background: rgba(31, 31, 46, 0.3); border-radius: var(--radius-lg); border: 1px dashed rgba(168, 85, 247, 0.2);">
+              <div style="font-size: 4rem; margin-bottom: 1rem; opacity: 0.6;">🔒</div>
+              <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 0.5rem;">${data.message || 'This section is currently disabled.'}</p>
+              <p style="color: var(--text-tertiary); font-size: 0.9rem;">Check back soon for updates!</p>
+            </div>
+          `;
+        }
+      } catch (error) {
+        console.log('Visibility check complete');
+      }
+    }
+
+    function renderCertification(cert) {
+      const emoji = cert.issuer?.includes('Microsoft') ? '🟦' : 
+                    cert.issuer?.includes('Oracle') ? '🔴' :
+                    cert.issuer?.includes('IBM') ? '🟦' :
+                    cert.issuer?.includes('Nutanix') ? '🔵' : '🏆';
+      
+      return `
+        <div class="certification-card" data-animate>
+          <div class="certification-badge">Admin Added</div>
+          <div class="certification-logo">
+            <div style="font-size: 3rem;">${emoji}</div>
+          </div>
+          <h3 class="certification-title">${cert.name}</h3>
+          <div class="certification-issuer">${cert.issuer}</div>
+          <p class="certification-description">${cert.description}</p>
+          <div class="certification-footer">
+            ${cert.verificationLink ? `<a href="${cert.verificationLink}" class="cert-btn" target="_blank" rel="noopener noreferrer">Verify Credential</a>` : '<span class="cert-btn" style="opacity: 0.5;">Pending Verification</span>'}
+          </div>
+        </div>
+      `;
+    }
+
+    function loadCertificationsFromAdmin() {
+      if (certificationsLoaded) return;
+
+      try {
+        const certificationsData = localStorage.getItem('cms_certifications_published');
+        const certificationsGrid = document.getElementById('certificationsGrid');
+
+        if (!certificationsData) return;
+
+        const certifications = JSON.parse(certificationsData);
+        if (!Array.isArray(certifications) || certifications.length === 0) return;
+
+        // Render admin certifications
+        certifications.forEach(cert => {
+          certificationsGrid.innerHTML += renderCertification(cert);
+        });
+
+        console.log(`✅ Loaded ${certifications.length} certifications from Admin CMS`);
+        certificationsLoaded = true;
+      } catch (error) {
+        console.log('ℹ️ No additional certifications published yet');
+      }
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      checkSectionVisibility();
+      loadCertificationsFromAdmin();
+    });
+
+    // Check visibility every 3 seconds
+    setInterval(checkSectionVisibility, 3000);
+
+    // Check for new certifications every 3 seconds
+    setInterval(loadCertificationsFromAdmin, 3000);
+  </script>
 </body>
 </html>

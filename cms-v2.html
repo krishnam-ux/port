@@ -53,6 +53,8 @@
       <div class="sidebar-nav-item" data-section="messages" title="Messages">💬</div>
       <div class="sidebar-nav-item" data-section="resume" title="Resume">📄</div>
       <div class="sidebar-nav-item" data-section="analytics" title="Analytics">📈</div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-nav-item" data-section="settings" title="Settings">⚙️</div>
     </aside>
 
     <!-- ============================================================================
@@ -449,6 +451,112 @@
               <span style="color: var(--primary-light); font-weight: 700;">423</span>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- ============================================================================
+           SETTINGS SECTION - Page Visibility Controls
+           ============================================================================ -->
+      <div class="cms-section-v2" id="settings-section" data-section-id="settings">
+        <h2 style="margin-bottom: 2rem; font-size: 1.8rem;">⚙️ Website Section Controls</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+          
+          <!-- Projects Section Control -->
+          <div style="background: rgba(31, 31, 46, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(168, 85, 247, 0.2); border-radius: var(--radius-lg); padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <h3 style="margin: 0; font-size: 1.1rem;">📁 Projects Page</h3>
+              <label style="position: relative; width: 50px; height: 28px;">
+                <input type="checkbox" id="toggle-projects" class="section-toggle" data-section="projects" style="display: none;">
+                <span style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #ccc; border-radius: 20px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; padding: 0 4px;" id="toggle-projects-visual">
+                  <span style="width: 20px; height: 20px; background: white; border-radius: 50%; display: block; transition: 0.3s;"></span>
+                </span>
+              </label>
+            </div>
+            <input type="text" id="message-projects" class="section-message" placeholder="Message when hidden..." style="width: 100%; padding: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(168, 85, 247, 0.2); border-radius: 6px; color: var(--text-primary); font-size: 0.9rem;">
+            <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">Status: <span id="status-projects" style="color: #4ade80;">Active</span></div>
+          </div>
+
+          <!-- Gallery Section Control -->
+          <div style="background: rgba(31, 31, 46, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(168, 85, 247, 0.2); border-radius: var(--radius-lg); padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <h3 style="margin: 0; font-size: 1.1rem;">🖼️ Gallery Page</h3>
+              <label style="position: relative; width: 50px; height: 28px;">
+                <input type="checkbox" id="toggle-gallery" class="section-toggle" data-section="gallery" style="display: none;">
+                <span style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #ccc; border-radius: 20px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; padding: 0 4px;" id="toggle-gallery-visual">
+                  <span style="width: 20px; height: 20px; background: white; border-radius: 50%; display: block; transition: 0.3s;"></span>
+                </span>
+              </label>
+            </div>
+            <input type="text" id="message-gallery" class="section-message" placeholder="Message when hidden..." style="width: 100%; padding: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(168, 85, 247, 0.2); border-radius: 6px; color: var(--text-primary); font-size: 0.9rem;">
+            <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">Status: <span id="status-gallery" style="color: #4ade80;">Active</span></div>
+          </div>
+
+          <!-- Certifications Section Control -->
+          <div style="background: rgba(31, 31, 46, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(168, 85, 247, 0.2); border-radius: var(--radius-lg); padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <h3 style="margin: 0; font-size: 1.1rem;">🏆 Certifications</h3>
+              <label style="position: relative; width: 50px; height: 28px;">
+                <input type="checkbox" id="toggle-certifications" class="section-toggle" data-section="certifications" style="display: none;">
+                <span style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #ccc; border-radius: 20px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; padding: 0 4px;" id="toggle-certifications-visual">
+                  <span style="width: 20px; height: 20px; background: white; border-radius: 50%; display: block; transition: 0.3s;"></span>
+                </span>
+              </label>
+            </div>
+            <input type="text" id="message-certifications" class="section-message" placeholder="Message when hidden..." style="width: 100%; padding: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(168, 85, 247, 0.2); border-radius: 6px; color: var(--text-primary); font-size: 0.9rem;">
+            <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">Status: <span id="status-certifications" style="color: #4ade80;">Active</span></div>
+          </div>
+
+          <!-- Hero Section Control -->
+          <div style="background: rgba(31, 31, 46, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(168, 85, 247, 0.2); border-radius: var(--radius-lg); padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <h3 style="margin: 0; font-size: 1.1rem;">🎯 Hero Section</h3>
+              <label style="position: relative; width: 50px; height: 28px;">
+                <input type="checkbox" id="toggle-hero" class="section-toggle" data-section="hero" style="display: none;">
+                <span style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #ccc; border-radius: 20px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; padding: 0 4px;" id="toggle-hero-visual">
+                  <span style="width: 20px; height: 20px; background: white; border-radius: 50%; display: block; transition: 0.3s;"></span>
+                </span>
+              </label>
+            </div>
+            <input type="text" id="message-hero" class="section-message" placeholder="Message when hidden..." style="width: 100%; padding: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(168, 85, 247, 0.2); border-radius: 6px; color: var(--text-primary); font-size: 0.9rem;">
+            <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">Status: <span id="status-hero" style="color: #4ade80;">Active</span></div>
+          </div>
+
+          <!-- About Section Control -->
+          <div style="background: rgba(31, 31, 46, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(168, 85, 247, 0.2); border-radius: var(--radius-lg); padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <h3 style="margin: 0; font-size: 1.1rem;">👤 About Page</h3>
+              <label style="position: relative; width: 50px; height: 28px;">
+                <input type="checkbox" id="toggle-about" class="section-toggle" data-section="about" style="display: none;">
+                <span style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #ccc; border-radius: 20px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; padding: 0 4px;" id="toggle-about-visual">
+                  <span style="width: 20px; height: 20px; background: white; border-radius: 50%; display: block; transition: 0.3s;"></span>
+                </span>
+              </label>
+            </div>
+            <input type="text" id="message-about" class="section-message" placeholder="Message when hidden..." style="width: 100%; padding: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(168, 85, 247, 0.2); border-radius: 6px; color: var(--text-primary); font-size: 0.9rem;">
+            <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">Status: <span id="status-about" style="color: #4ade80;">Active</span></div>
+          </div>
+
+          <!-- Skills Section Control -->
+          <div style="background: rgba(31, 31, 46, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(168, 85, 247, 0.2); border-radius: var(--radius-lg); padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <h3 style="margin: 0; font-size: 1.1rem;">🎯 Skills Page</h3>
+              <label style="position: relative; width: 50px; height: 28px;">
+                <input type="checkbox" id="toggle-skills" class="section-toggle" data-section="skills" style="display: none;">
+                <span style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #ccc; border-radius: 20px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; padding: 0 4px;" id="toggle-skills-visual">
+                  <span style="width: 20px; height: 20px; background: white; border-radius: 50%; display: block; transition: 0.3s;"></span>
+                </span>
+              </label>
+            </div>
+            <input type="text" id="message-skills" class="section-message" placeholder="Message when hidden..." style="width: 100%; padding: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(168, 85, 247, 0.2); border-radius: 6px; color: var(--text-primary); font-size: 0.9rem;">
+            <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">Status: <span id="status-skills" style="color: #4ade80;">Active</span></div>
+          </div>
+
+        </div>
+
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(168, 85, 247, 0.1);">
+          <button id="saveSectionSettings" style="background: linear-gradient(135deg, var(--purple-primary), var(--purple-light)); color: white; padding: 12px 32px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.95rem;">💾 Save Settings</button>
+          <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">When you disable a section, it will be hidden from the website and replaced with your custom message.</p>
         </div>
       </div>
 
